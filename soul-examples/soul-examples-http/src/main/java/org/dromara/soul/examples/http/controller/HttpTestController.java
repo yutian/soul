@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/test")
-@SoulSpringMvcClient(path = "/test/**")
+@SoulSpringMvcClient(path = "/test/**",registerMetaData = true)
 public class HttpTestController {
 
     /**

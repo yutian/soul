@@ -225,6 +225,17 @@ public interface Constants {
     String REWRITE_URI = "rewrite_uri";
 
     /**
+     * The constant REWRITE_QUERY.
+     */
+    String REWRITE_QUERY = "rewrite_query";
+
+
+    /**
+     * The constant REWRITE_BODY.
+     */
+    String REWRITE_BODY = "rewrite_body";
+
+    /**
      * The constant HTTP_ERROR_RESULT.
      */
     String HTTP_ERROR_RESULT = "this is bad request or fuse ing please try again later";

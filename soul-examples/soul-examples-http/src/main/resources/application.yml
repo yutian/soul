@@ -26,6 +26,7 @@ soul:
     appName: http
     full: false
 
+
 logging:
   level:
     root: info

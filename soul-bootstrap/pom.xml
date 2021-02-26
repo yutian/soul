@@ -43,6 +43,19 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- tars -->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-spring-boot-starter-plugin-tars</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tencent.tars</groupId>
+            <artifactId>tars-client</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
         <!--soul gateway start-->
         <dependency>
             <groupId>org.dromara</groupId>
@@ -185,6 +198,31 @@
             <version>${project.version}</version>
         </dependency>
         <!-- soul waf plugin end-->
+
+        <!-- soul context_path plugin start-->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-spring-boot-starter-plugin-context-path</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- soul context_path plugin end-->
+
+        <!-- soul rewrite plugin start-->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-spring-boot-starter-plugin-rewrite</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- soul rewrite plugin end-->
+
+
+        <!-- soul rewrite plugin start-->
+        <dependency>
+            <groupId>org.dromara</groupId>
+            <artifactId>soul-spring-boot-starter-plugin-mapping</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- soul rewrite plugin end-->
 
         <!-- soul sofa plugin starter-->
         <dependency>

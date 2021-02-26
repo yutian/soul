@@ -61,6 +61,12 @@ public enum PluginEnum {
      */
     REWRITE(30, 0, "rewrite"),
 
+
+    /**
+     * Mapping plugin enum.
+     */
+    REQUEST_MAPPING(35, 0, "request_mapping"),
+
     /**
      * Redirect plugin enum.
      */

@@ -27,6 +27,7 @@ import org.dromara.soul.client.tars.common.annotation.SoulTarsService;
 import org.dromara.soul.client.tars.common.config.TarsConfig;
 import org.dromara.soul.client.tars.common.dto.MetaDataDTO;
 import org.dromara.soul.common.enums.RpcTypeEnum;
+import org.dromara.soul.common.utils.GsonUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
@@ -153,6 +154,10 @@ public class TarsServiceBeanPostProcessor implements BeanPostProcessor {
         MetaDataDTO.RpcExtList buildList = MetaDataDTO.RpcExtList.builder()
                 .methodInfo(list)
                 .build();
-        return OkHttpTools.getInstance().getGson().toJson(buildList);
+        String body =  OkHttpTools.getInstance().getGson().toJson(buildList);
+        log.info("body:{}",body);
+        String body2 =  GsonUtils.getInstance().toJson(buildList);
+        log.info("body2:{}",body2);
+        return body2;
     }
 }

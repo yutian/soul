@@ -80,6 +80,7 @@ public class ContextRegisterListener implements ApplicationListener<ContextRefre
                 .rpcType(RpcTypeEnum.HTTP.getName())
                 .enabled(true)
                 .ruleName(path)
+                .registerMetaData(true)
                 .build();
         return OkHttpTools.getInstance().getGson().toJson(registerDTO);
     }

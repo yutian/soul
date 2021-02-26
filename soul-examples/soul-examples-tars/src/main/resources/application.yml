@@ -34,4 +34,4 @@ soul:
     adminUrl: http://localhost:9095
     contextPath: /tars
     appName: tars
-    ipAndPort: 192.168.41.103:21715
+    ipAndPort: 127.0.0.1:21715

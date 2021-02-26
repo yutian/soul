@@ -115,7 +115,8 @@ public class WebClientPlugin implements SoulPlugin {
             httpHeaders.remove(HttpHeaders.HOST);
         })
                 .contentType(buildMediaType(exchange))
-                .body(BodyInserters.fromDataBuffers(exchange.getRequest().getBody()))
+                .body(exchange.getAttribute(Constants.REWRITE_BODY) !=null ? BodyInserters.fromProducer(Mono.just(exchange.getAttribute(Constants.REWRITE_BODY)),String.class)
+                        :  BodyInserters.fromDataBuffers(exchange.getRequest().getBody()))
                 .exchange()
                 .doOnError(e -> log.error(e.getMessage()))
                 .timeout(Duration.ofMillis(timeout))

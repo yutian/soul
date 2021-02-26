@@ -121,7 +121,7 @@
         <shiro.version>1.7.0</shiro.version>
         <jwt.version>3.12.0</jwt.version>
         <!--maven plugin version-->
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
         <apache-rat-plugin.version>0.12</apache-rat-plugin.version>
         <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.3</nexus-staging-maven-plugin.version>
@@ -481,23 +481,23 @@
                     <skip>${skipTests}</skip>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
-                <configuration>
-                    <aggregate>true</aggregate>
-                    <sourcepath>src/main/java</sourcepath>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--                <version>${maven-javadoc-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <aggregate>true</aggregate>-->
+<!--                    <sourcepath>src/main/java</sourcepath>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>jar</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -523,100 +523,100 @@
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>${versions-maven-plugin.version}</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-checkstyle-plugin.version}</version>
-                <configuration>
-                    <configLocation>/script/soul_checkstyle.xml</configLocation>
-                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                    <excludes>**/transfer/**/*</excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                <version>${maven-checkstyle-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <configLocation>/script/soul_checkstyle.xml</configLocation>-->
+<!--                    <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+<!--                    <excludes>**/transfer/**/*</excludes>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>validate</id>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.jacoco</groupId>-->
+<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--                <version>${jacoco-maven-plugin.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-agent</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>report</id>-->
+<!--                        <phase>test</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>report</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
-            <plugin>
-                <groupId>org.apache.rat</groupId>
-                <artifactId>apache-rat-plugin</artifactId>
-                <version>${apache-rat-plugin.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>**/target/**</exclude>
-                        <exclude>**/logs/**</exclude>
-                        <exclude>**/*.log</exclude>
-                        <exclude>**/*.tar.gz</exclude>
-                        <exclude>**/spring.factories</exclude>
-                        <exclude>**/spring.provides</exclude>
-                        <exclude>/script/**</exclude>
-                        <exclude>**/lombok.config</exclude>
-                        <exclude>**/*.json</exclude>
-                        <!-- IDE files -->
-                        <exclude>**/*.iml</exclude>
-                        <exclude>**/.idea/**</exclude>
-                        <exclude>**/*.classpath</exclude>
-                        <exclude>**/.project</exclude>
-                        <exclude>**/.settings/**</exclude>
-                        <exclude>**/dependency-reduced-pom.xml</exclude>
-                        <!-- git files -->
-                        <exclude>**/.gitignore</exclude>
-                        <exclude>**/.gitmodules</exclude>
-                        <exclude>**/.git/**</exclude>
-                        <!-- CI files -->
-                        <exclude>**/.travis.yml</exclude>
-                        <exclude>**/.codecov.yml</exclude>
-                        <exclude>**/.mvn/jvm.config</exclude>
-                        <exclude>**/.mvn/wrapper/maven-wrapper.properties</exclude>
-                        <!-- GitHub files -->
-                        <exclude>**/.github/**</exclude>
-                        <!-- document files -->
-                        <exclude>**/*.md</exclude>
-                        <excldue>**/*.MD</excldue>
-                        <excldue>**/*.conf</excldue>
-                        <excldue>**/*.tars</excldue>
-                        <exclude>**/*.txt</exclude>
-                        <exclude>**/docs/**</exclude>
-                        <!-- UI files -->
-                        <exclude>/soul-dashboard/**</exclude>
-                        <exclude>**/resources/static/</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.rat</groupId>-->
+<!--                <artifactId>apache-rat-plugin</artifactId>-->
+<!--                <version>${apache-rat-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <excludes>-->
+<!--                        <exclude>**/target/**</exclude>-->
+<!--                        <exclude>**/logs/**</exclude>-->
+<!--                        <exclude>**/*.log</exclude>-->
+<!--                        <exclude>**/*.tar.gz</exclude>-->
+<!--                        <exclude>**/spring.factories</exclude>-->
+<!--                        <exclude>**/spring.provides</exclude>-->
+<!--                        <exclude>/script/**</exclude>-->
+<!--                        <exclude>**/lombok.config</exclude>-->
+<!--                        <exclude>**/*.json</exclude>-->
+<!--                        &lt;!&ndash; IDE files &ndash;&gt;-->
+<!--                        <exclude>**/*.iml</exclude>-->
+<!--                        <exclude>**/.idea/**</exclude>-->
+<!--                        <exclude>**/*.classpath</exclude>-->
+<!--                        <exclude>**/.project</exclude>-->
+<!--                        <exclude>**/.settings/**</exclude>-->
+<!--                        <exclude>**/dependency-reduced-pom.xml</exclude>-->
+<!--                        &lt;!&ndash; git files &ndash;&gt;-->
+<!--                        <exclude>**/.gitignore</exclude>-->
+<!--                        <exclude>**/.gitmodules</exclude>-->
+<!--                        <exclude>**/.git/**</exclude>-->
+<!--                        &lt;!&ndash; CI files &ndash;&gt;-->
+<!--                        <exclude>**/.travis.yml</exclude>-->
+<!--                        <exclude>**/.codecov.yml</exclude>-->
+<!--                        <exclude>**/.mvn/jvm.config</exclude>-->
+<!--                        <exclude>**/.mvn/wrapper/maven-wrapper.properties</exclude>-->
+<!--                        &lt;!&ndash; GitHub files &ndash;&gt;-->
+<!--                        <exclude>**/.github/**</exclude>-->
+<!--                        &lt;!&ndash; document files &ndash;&gt;-->
+<!--                        <exclude>**/*.md</exclude>-->
+<!--                        <excldue>**/*.MD</excldue>-->
+<!--                        <excldue>**/*.conf</excldue>-->
+<!--                        <excldue>**/*.tars</excldue>-->
+<!--                        <exclude>**/*.txt</exclude>-->
+<!--                        <exclude>**/docs/**</exclude>-->
+<!--                        &lt;!&ndash; UI files &ndash;&gt;-->
+<!--                        <exclude>/soul-dashboard/**</exclude>-->
+<!--                        <exclude>**/resources/static/</exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>
